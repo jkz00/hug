@@ -67,7 +67,7 @@ export const fetchLastPratiche = async () => {
     try {
         await connectToDB();
         const date = new Date();
-        const meseCorrente = date.toLacaleString('it-IT', {month: 'long'});
+        const meseCorrente = date.toLocaleString('it-IT', {month: 'long'});
         const lastPratiche = await Pratiche.find({mese: meseCorrente})
         .sort({createdAt: -1})
         .limit(50)
